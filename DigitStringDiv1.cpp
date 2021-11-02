@@ -33,6 +33,16 @@ class DigitStringDiv1 {
       return rv;
     }
 
+    long long comb(long n, long k) {
+      long long rv = 1;
+
+      for (long i = 1; i <= k; i++) {
+        rv = rv * (n + 1 - i) / (i);
+      }
+
+      return rv;
+    }
+
   public:
     long long count(string s, int x) {
 
