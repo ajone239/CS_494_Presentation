@@ -19,20 +19,9 @@ class DigitStringDiv1 {
     string XS;                                      // X as a string of digits
     int SD;                                         // Number of digits in S
     int XD;                                         // Number of digits in X
-    long long ngtr_digits(int sindex);              // Counting strings whose sizes are > XD.
-    long long neq_digits(int sindex, int xindex);   // Counting strings whose sizes are == XD
     long long Cache[50][15];                        // Memoization cache for neq_digits()
 
     // Return N-choose-K.
-    long long comb(long long N, long long K) {
-      (void) N;
-      (void) K;
-
-      long long rv = 1;
-
-      return rv;
-    }
-
     long long comb(long n, long k) {
       long long rv = 1;
 
@@ -43,8 +32,39 @@ class DigitStringDiv1 {
       return rv;
     }
 
+    // Counting strings whose sizes are > XD.
+    long long ngtr_digits(int sindex) {
+      long long rv = 0;
+
+      for (int i = this->XD; i <= sindex; i++) {
+        rv += this->comb(i, XD);
+      }
+
+      return rv;
+    }
+
+    // Counting strings whose sizes are == XD
+    long long neq_digits(int sindex, int xindex);
+
   public:
     long long count(string s, int x) {
+      this->X = x;
+      this->S = s;
+      this->XS = to_string(x);
+      this->SD = s.size();
+      this->XD = this->XS.size();
+
+      long long rv = 0;
+
+      for (int i = this->XD; i < this->SD; i++) {
+        if (this->S[i] != 0)
+          rv += ngtr_digits(i);
+      }
+
+      return rv;
+    }
+
+    long long count_dumb(string s, int x) {
 
       size_t x_len = 0;
       long long count = 0;
