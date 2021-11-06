@@ -19,7 +19,7 @@ class DigitStringDiv1 {
     string XS;                                      // X as a string of digits
     int SD;                                         // Number of digits in S
     int XD;                                         // Number of digits in X
-    long long Cache[50][15];                        // Memoization cache for neq_digits()
+    long long Cache[50][15] = {{-1}};               // Memoization cache for neq_digits()
 
     // Return N-choose-K.
     long long comb(long n, long k) {
@@ -46,7 +46,30 @@ class DigitStringDiv1 {
     }
 
     // Counting strings whose sizes are == XD
-    long long neq_digits(int sindex, int xindex);
+    long long neq_digits(int sindex, int xindex) {
+
+      long long rv = 0;
+
+      if (xindex >= this->XD) {
+        return 0;
+      }
+
+      if (xindex == this->XD - 1) {
+        if (this->XS[xindex] > this->S[sindex]) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }
+
+      if (this->XS[xindex] >= this->S[sindex]) {
+        for (int j = 0; j < this->XD; j++) {
+          rv += neq_digits(sindex + j, xindex + 1);
+        }
+      }
+
+      return rv;
+    }
 
   public:
     long long count(string s, int x) {
@@ -58,11 +81,15 @@ class DigitStringDiv1 {
 
       long long rv = 0;
 
-      for (int i = this->XD; i < this->SD; i++) {
-
-        if (this->S[this->SD - i - 1] != '0') {
+      // Count Greater
+      for (int i = this->XD; i < this->SD; i++)
+        if (this->S[this->SD - i - 1] != '0')
           rv += ngtr_digits(i);
-        }
+
+      // Count Equal
+      for (int i = 0; i < this->SD - this->XD + 1; i++) {
+        // Start at each index where an equal could start.
+        neq_digits(i, 0);
       }
 
       return rv;
