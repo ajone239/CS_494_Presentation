@@ -2,4 +2,5 @@ main
 .o
 .swp
 .DS_Store
+*.DSYM
 a.out

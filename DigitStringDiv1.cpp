@@ -36,8 +36,10 @@ class DigitStringDiv1 {
     long long ngtr_digits(int sindex) {
       long long rv = 0;
 
+      // only go to sindex because you want to gurantee it starts at sindex
+      // also use XD because you are doing xd + 1 with using sindex
       for (int i = this->XD; i <= sindex; i++) {
-        rv += this->comb(i, XD);
+          rv += this->comb(sindex, i);
       }
 
       return rv;
@@ -57,8 +59,10 @@ class DigitStringDiv1 {
       long long rv = 0;
 
       for (int i = this->XD; i < this->SD; i++) {
-        if (this->S[i] != 0)
+
+        if (this->S[this->SD - i - 1] != '0') {
           rv += ngtr_digits(i);
+        }
       }
 
       return rv;
