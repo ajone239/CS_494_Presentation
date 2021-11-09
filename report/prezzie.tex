@@ -1,6 +1,8 @@
-\documentclass{beamer}
+\documentclass[10pt]{beamer}
 
 \usetheme{metropolis}           % Use metropolis theme
+
+\usepackage{minted}
 
 \author{Austin Jones}
 \title{DigitStringDiv1 \-- SRM 741, D1, 250-Pointer}
@@ -12,10 +14,57 @@
 
 \maketitle
 
-\section{First Section}
+\section{Problem Intro}
+
+\begin{frame}[fragile]{Statement and Constraints}
+  \begin{minted}{cpp}
+    class DigitStringDiv1 {
+      public:
+        long long count(string s, int x);
+    };
+  \end{minted}
+  \begin{itemize}
+    \item Given: S, string containing characters from '0' through '9' and is at most 47 characters in length.
+    \item Given: X, integer between 0 and 777,444,111.
+    \item A subsequence of S is a string that results when you erase some subset of indices of S.
+    \item e.g. S is ``12356'', ``13'' and ``256'' are subsequences. ``61'' is not.
+    \item Count the number of subsequences of S that are greater than X.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+  EXAMPLE HERE
+\end{frame}
+
+\section{Slow, Dumb Way}
 
 \begin{frame}{First Frame}
   Hello, world!
+\end{frame}
+
+\section{Fast, Smart Way}
+
+\begin{frame}{First Frame}
+  Hello, world!
+\end{frame}
+
+
+\section{Wrapping Up}
+
+\begin{frame}{How did Topcoder Do?}
+  \begin{itemize}
+    \item Problem Given in Topcoder: November, 2018
+    \item Competitors who opened the problem: 99
+    \item Competitors who submitted a solution: 82
+    \item Number of correct solutions: 42
+    \item Accuracy (percentage correct vs those who opened): 49.4%
+    \item Average Correct Time: 24.59
+    \item Best Time: 4:56
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thank You}
+  \Huge Questions?
 \end{frame}
 
 \end{document}
