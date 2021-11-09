@@ -4,3 +4,12 @@ main
 .DS_Store
 *.DSYM
 a.out
+
+report/_minted-prezzie
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
