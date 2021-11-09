@@ -1,7 +1,8 @@
 #include "DigitStringDiv1.cpp"
+#include <ctime>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
+
   class DigitStringDiv1 TheClass;
   long long retval;
   string S;
@@ -55,8 +56,10 @@ int main(int argc, char **argv)
 
   }
 
+  const clock_t begin = std::clock();
   retval = TheClass.count(S, X);
   cout << "S=" << S << "    X=" << X << "    Answer=" << retval << endl;
+  std::cout << "Took: " << float(std::clock() - begin) /  CLOCKS_PER_SEC << std::endl;
 
   exit(0);
 }
