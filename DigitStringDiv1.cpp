@@ -85,6 +85,7 @@ class DigitStringDiv1 {
 
       // Cache Hit?
       if (this->Cache[sindex][xindex]) {
+        // printf("Cache HIT!\n");
         return this->Cache[sindex][xindex];
       }
 
