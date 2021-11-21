@@ -11,6 +11,7 @@ main: main.cpp DigitStringDiv1.o
 
 run: main
 	for i in $$(seq 0 13); do \
+		echo $$i;		 						\
 		./main $$i;							\
 	done
 

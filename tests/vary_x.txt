@@ -1,0 +1,20 @@
+X = 111 len = 3
+Took: 3.4e-05
+X = 555 len = 3
+Took: 2.5e-05
+X = 2775 len = 4
+Took: 2.4e-05
+X = 13875 len = 5
+Took: 2.3e-05
+X = 69375 len = 5
+Took: 2.1e-05
+X = 346875 len = 6
+Took: 2.1e-05
+X = 1734375 len = 7
+Took: 1.9e-05
+X = 8671875 len = 7
+Took: 2e-05
+X = 43359375 len = 8
+Took: 1.8e-05
+X = 216796875 len = 9
+Took: 1.6e-05

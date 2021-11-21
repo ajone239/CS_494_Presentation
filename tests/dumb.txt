@@ -1,0 +1,26 @@
+for i in $(seq 0 13); do \
+		echo $i;		 						\
+		./main $i;							\
+	done
+0
+S=0    X=1    Answer_Dumb=0
+Took: 1.1e-05
+1
+S=101    X=9    Answer_Dumb=3
+Took: 1.3e-05
+2
+S=471    X=47    Answer_Dumb=2
+Took: 1.5e-05
+3
+S=2222    X=97    Answer_Dumb=5
+Took: 1.6e-05
+4
+S=95847362    X=436    Answer_Dumb=216
+Took: 0.000108
+5
+S=102030405    X=85    Answer_Dumb=316
+Took: 0.00017
+6
+S=8034151889109199226907    X=368249157    Answer_Dumb=2582766
+Took: 2.3864
+7

@@ -85,7 +85,7 @@ class DigitStringDiv1 {
 
       // Cache Hit?
       if (this->Cache[sindex][xindex]) {
-        // printf("Cache HIT!\n");
+        this->hits++;
         return this->Cache[sindex][xindex];
       }
 
@@ -113,9 +113,12 @@ class DigitStringDiv1 {
     }
 
   public:
+    long long hits;
+
     long long count(string s, int x) {
 
       // Set up the object
+      this->hits = 0;
       this->X = x;
       this->S = s;
       this->XS = to_string(x);
