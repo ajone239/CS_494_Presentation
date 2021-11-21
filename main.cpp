@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
   // retval = TheClass.count_dumb(S, X);
   const clock_t end = std::clock();
 
-  cout << "S=" << S << "    X=" << X << "    Answer_memo_back=" << retval << endl;
+  cout << "S=" << S << "    X=" << X << "    Answer=" << retval << endl;
   std::cout << "Took: " << float(end - begin) /  CLOCKS_PER_SEC << std::endl;
   cout << "hits = " << TheClass.hits << endl;
 

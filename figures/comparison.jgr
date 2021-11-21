@@ -1,0 +1,74 @@
+newgraph
+
+xaxis
+  min 0 max 15
+  label : Example Number
+
+yaxis
+  min 0 max 0.001
+  hash 0.0001
+  label : Time (s)
+
+newstring hjc vjc x 7.5 y 0.0010
+    fontsize 16 font Times-Italic : Comparison of Techniques
+
+newline linetype dashed color 1 0 0 label : Dumb
+  pts
+    0 1.1e-05
+    1 1.3e-05
+    2 1.5e-05
+    3 1.6e-05
+    4 0.000108
+    5 0.00017
+    6 2.3864
+
+newline marktype box color 0 1 1 label : Non-Memoized
+  pts
+    0 8e-06
+    1 7e-06
+    2 8e-06
+    3 8e-06
+    4 1e-05
+    5 1e-05
+    6 3.1e-05
+    7 0.000113
+    8 0.000284
+    9 0.000301
+    10 0.000202
+    11 0.000381
+    12 0.000206
+    13 0.000349
+
+newline marktype circle color 0 0 1 label : Memoized
+  pts
+    0 7e-06
+    1 1.2e-05
+    2 9e-06
+    3 9e-06
+    4 9e-06
+    5 9e-06
+    6 3.1e-05
+    7 8.2e-05
+    8 0.00027
+    9 0.000298
+    10 0.000198
+    11 0.000381
+    12 0.000209
+    13 0.000324
+
+newline marktype triangle color 1 0 1 label : Memoized Iter Backwards
+  pts
+  0 7e-06
+  1 1.9e-05
+  2 8e-06
+  3 1.1e-05
+  4 1.1e-05
+  5 1e-05
+  6 3e-05
+  7 8.1e-05
+  8 0.000268
+  9 0.000297
+  10 0.000199
+  11 0.000369
+  12 0.000204
+  13 0.000322

@@ -1,0 +1,22 @@
+newgraph
+
+xaxis
+  min 2 max 10
+  label : Length of X
+
+yaxis
+  min 0 max 30
+  label : Time (us)
+
+newstring hjc vjc x 6 y 32
+    fontsize 16 font Times-Italic : Time (us) vs. Length of X
+
+newline marktype circle color 0 0 0
+  pts
+3 25
+4 24
+5 23
+6 21
+7 19
+8 18
+9 16
