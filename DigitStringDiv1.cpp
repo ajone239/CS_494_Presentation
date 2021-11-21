@@ -62,7 +62,7 @@ class DigitStringDiv1 {
 
       /*
        * Only go to sindex because you want to gurantee it starts at sindex
-       * Also use XD because you are doing xd + 1 with using sindex
+       * Also use XD because you are doing xd + 1 to have more digits
        */
       for (int i = this->XD; i <= sindex; i++) {
           rv += this->comb(sindex, i);
@@ -94,9 +94,7 @@ class DigitStringDiv1 {
          * If the S digit is greater than X digit then we can skip the rest
          * of the checks and just count how many strings we can build.
          */
-        rv = this->comb(
-            this->SD - sindex - 1,
-            this->XD - xindex - 1);
+        rv = this->comb(this->SD - sindex - 1, this->XD - xindex - 1);
       } else if (this->S[sindex] == this->XS[xindex]) {
         // last char in string equal means it isn't greater
         if (xindex == this->XD - 1) {
@@ -132,6 +130,7 @@ class DigitStringDiv1 {
           rv += ngtr_digits(i);
 
       // Count Equal
+      // try going backward
       for (int i = 0; i < this->SD - this->XD + 1; i++) {
         // Start at each index where an equal could start.
         rv += neq_digits(i, 0);
