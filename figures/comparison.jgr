@@ -5,11 +5,11 @@ xaxis
   label : Example Number
 
 yaxis
-  min 0 max 0.001
+  min 0 max 0.0005
   hash 0.0001
   label : Time (s)
 
-newstring hjc vjc x 7.5 y 0.0010
+newstring hjc vjc x 7.5 y 0.0005
     fontsize 16 font Times-Italic : Comparison of Techniques
 
 newline linetype dashed color 1 0 0 label : Dumb

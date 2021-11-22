@@ -35,10 +35,10 @@
   \begin{itemize}
     \item Given: S, string containing characters from '0' through '9' and is at most 47 characters in length.
     \item Given: X, integer between 0 and 777,444,111.
-    \item A subsequence of S is a string that results when you erase some subset of indices of S.
-    \item A subsequence of S does not start with '0'.
-    \item e.g. S is ``12356'', ``13'' and ``256'' are subsequences. ``61'' is not.
-    \item \textbf{Count the number of subsequences of S that are greater than X.}
+    \item A substring of S is a string that results when you erase some subset of indices of S.
+    \item A substring of S does not start with '0'.
+    \item e.g. S is ``12356'', ``13'' and ``256'' are substrings. ``61'' is not.
+    \item \textbf{Count the number of substrings of S that are greater than X.}
   \end{itemize}
 \end{frame}
 
@@ -151,10 +151,10 @@
 \begin{frame}{Digits Greater: Running Time}
   \large
   \begin{itemize} % [<+->]
-    \item For all $S_{i}$ s.t. $i > X_{D}$: $O(S_D)$
-    \item Look at all substring lengths from $X_D$ to $i$: $O(S_D)$
+    \item For all $S_{i}$ s.t. $i > X_{D}$: $O(S_D - X_D)$ \footnote{The ``$- X_D$'' comes back up later.}
+    \item Look at all substring lengths from $X_D$ to $i$: $O(S_D - X_D)$
     \item i choose j: $O(j) \rightarrow O(S_D)$
-    \item Total: $O(S_D)*O(S_D)*O(S_D) = O({S_{D}}^{3})$
+    \item Total: $O(S_D - X_D)*O(S_D - X_D)*O(S_D) = O((S_{D})(S_{D} - X_D)^{2})$
   \end{itemize}
 \end{frame}
 
@@ -195,35 +195,57 @@
   Which would never happen.
 \end{frame}
 
+\begin{frame}{Total Running Time/Comparison}
+  The total runtime for this algorithm is:
+  \begin{equation*}
+    T_{smart}(S, X) = O({S_{D}}^{X_{D} + 1} + (S_{D})(S_{D} - X_D)^{2})
+  \end{equation*}
+  Great improvement over:
+  \begin{equation*}
+    T_{dumb}(S, X) = O(S_{D}*2^{S_{D}}) + O(S_{D}*2^{S_{D}}) = O(S_{D}*2^{S_{D}})
+  \end{equation*}
+\end{frame}
+
+\section{Findings}
+
 \begin{frame}{Speeding up Digits Equal}
   \begin{itemize}
+    \item Memoization: \\
+      $CountEqual(i, j)$ can be memoized on i and j.
+      Making recurring recursion calls free.
+    \item Reverse Iteration: \\
+      The thought here is that iterating backwards would fill up the Memoization Cache faster.
     \item Early Exit: \\
       If in a call of $CountEqual(i, j)$, $S_{i} > X_{j}$ is found, return:\\
       \begin{equation*}
         \binom{S_{D} - i}{X_{D} - j}
       \end{equation*}\\
-    \item Memoization: \\
-      $CountEqual(i, j)$ can be memoized on i and j.
-      Making recurring recursion calls free.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Total Running Time/Comparison}
-  The total runtime for this algorithm is:
-  \begin{equation*}
-    T(S, X) = O({S_{D}}^{X_{D} + 1} + {S_{D}}^{3})
-  \end{equation*}
-  Great improvement over:
-  \begin{equation*}
-    T(S, X) = O(S_{D}*2^{S_{D}}) + O(S_{D}*2^{S_{D}}) = O(S_{D}*2^{S_{D}})
-  \end{equation*}
+
+\begin{frame}{Different Methods to the Problem}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/comparison.ps}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Time vs S}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/vary_s.ps}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Time vs X}
+  \begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../figures/vary_x.ps}
+  \end{figure}
 \end{frame}
 
 \section{Wrapping Up}
-
-\begin{frame}{Plots I guess}
-  HOLD
-\end{frame}
 
 \begin{frame}{Machine Specs}
   \Large

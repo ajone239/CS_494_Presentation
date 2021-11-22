@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -g -std=c++11
 
 EXEC = main
 REPORT = report/prezzie.pdf
-FIGURES = figures/comparison.pdf figures/vary_s.pdf figures/vary_x.pdf
+FIGURES = figures/comparison.ps figures/vary_s.ps figures/vary_x.ps
 FIGURES_src = figures/comparison.jgr figures/vary_s.jgr figures/vary_x.jgr
 
 all: $(EXEC) $(REPORT) $(FIGURES)
