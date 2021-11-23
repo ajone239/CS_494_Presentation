@@ -11,8 +11,16 @@
 \author{Austin Jones}
 \title{DigitStringDiv1 \-- SRM 741, D1, 250-Pointer}
 \date{\today}
-
 \institute{University of Tennessee \-- Knoxville}
+
+
+\newcommand{\fullwidthgraphic}[2] {
+   {
+   \usebackgroundtemplate{\includegraphics[height=\paperwidth]{#1}}
+   \begin{frame}{#2}
+   \end{frame}
+   }
+}
 
 \begin{document}
 
@@ -46,10 +54,10 @@
   \Large
   $S = 101; X = 9 \rightarrow Answer = 3$ \\
   \begin{itemize}[<+->]
-    \item $101 > 9$ \only<5>{Here!}
-    \item $10 > 9$  \only<5>{Here!}
-    \item $11 > 9$  \only<5>{Here!}
-    \item $1 \le 9$
+    \item $101$ \only<5->{$ > 9$}   \only<6>{Here!}
+    \item $10$  \only<5->{$ > 9$}   \only<6>{Here!}
+    \item $11$  \only<5->{$ > 9$}   \only<6>{Here!}
+    \item $1$   \only<5->{$ \le 9$}
   \end{itemize}
 \end{frame}
 
@@ -57,13 +65,13 @@
   \Large
   $S = 471; X = 47 \rightarrow Answer = 2$ \\
   \begin{itemize}[<+->]
-    \item $471 > 47$    \only<8->{Here!}
-    \item $47 \le 47$   \only<9>{\emph{Notably Not} Here!}
-    \item $41 \le 47$
-    \item $71 > 47$     \only<8->{Here!}
-    \item $4 \le 47$
-    \item $7 \le 47$
-    \item $1 \le 47$
+    \item $471 $ \only<8->{$> 47$  }  \only<9->{Here!}
+    \item $47  $ \only<8->{$\le 47$}   \only<10>{\emph{Notably Not} Here!}
+    \item $41  $ \only<8->{$\le 47$}
+    \item $71  $ \only<8->{$> 47$  }   \only<9->{Here!}
+    \item $4   $ \only<8->{$\le 47$}
+    \item $7   $ \only<8->{$\le 47$}
+    \item $1   $ \only<8->{$\le 47$}
   \end{itemize}
 \end{frame}
 
@@ -176,7 +184,7 @@
 \end{frame}
 
 \begin{frame}{Digits Equal: Running Time}
-  Let $T_{0}(d)$ be the time/work to run $CountEqual(i, 0)$.
+  Let $T_{0}(d)$ be the time/work to run $CountEqual(i, d)$.
   $T_{0}(0)$ is the exit a condition.
   $T_{0}(0)$ is $O(1)$ multiplied by the levels that reach it. \\
   \begin{align*}
@@ -227,21 +235,21 @@
 \begin{frame}{Different Methods to the Problem}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/comparison.ps}
+    \includegraphics[width=1.0\textwidth]{../figures/comparison.ps}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Time vs S}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/vary_s.ps}
+    \includegraphics[width=1.0\textwidth]{../figures/vary_s.ps}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Time vs X}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.7\textwidth]{../figures/vary_x.ps}
+    \includegraphics[width=1.0\textwidth]{../figures/vary_x.ps}
   \end{figure}
 \end{frame}
 

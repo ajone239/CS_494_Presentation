@@ -2,15 +2,19 @@ newgraph
 
 xaxis
   min 4 max 50
-  label : Length of S
+  mhash 4
+  size 3
+  label font Fira : Length of S
 
 yaxis
   min 0 max 0.0005
-  hash 0.00005
-  label : Time (s)
+  hash 0.0001
+  mhash 1
+  size 2
+  label font Fira : Time (s)
 
 newstring hjc vjc x 25 y 0.0005
-    fontsize 16 font Times-Italic : Time (s) vs. Length of S
+    fontsize 12 font Fira : Time (s) vs. Length of S
 
 newline marktype circle color 0 0 0
   pts

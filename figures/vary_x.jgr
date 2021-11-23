@@ -2,14 +2,16 @@ newgraph
 
 xaxis
   min 2 max 10
-  label : Length of X
+  size 3
+  label font Fira : Length of X
 
 yaxis
   min 0 max 30
-  label : Time (us)
+  size 2
+  label font Fira : Time (us)
 
 newstring hjc vjc x 6 y 32
-    fontsize 16 font Times-Italic : Time (us) vs. Length of X
+    fontsize 12 font Fira : Time (us) vs. Length of X
 
 newline marktype circle color 0 0 0
   pts
