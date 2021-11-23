@@ -3,19 +3,19 @@ newgraph
 xaxis
   min 0 max 15
   size 3
-  label font Fira : Example Number
+  label fontsize 10 font Fira : Example Number
 
 yaxis
   min 0 max 0.0005
   hash 0.0001
   mhash 2
   size 2.5
-  label font Fira : Time (s)
+  label fontsize 10 font Fira : Time (s)
 
 newstring hjc vjc x 7.5 y 0.0005
     fontsize 12 font Fira : Comparison of Techniques
 
-legend defaults font Fira
+legend defaults fontsize 10 font Fira
 
 newline linetype dashed color 1 0 0 label : Dumb
   pts
@@ -61,7 +61,7 @@ newline marktype circle color 0 0 1 label : Memoized
     12 0.000209
     13 0.000324
 
-newline marktype triangle color 1 0 1 label : Memoized Iter Backwards
+newline marktype triangle color 1 0 1 label : Memo-Reversed   *
   pts
   0 7e-06
   1 1.9e-05

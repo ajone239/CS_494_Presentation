@@ -3,12 +3,14 @@ newgraph
 xaxis
   min 2 max 10
   size 3
-  label font Fira : Length of X
+  mhash 4
+  label fontsize 10 font Fira : Size of X
 
 yaxis
   min 0 max 30
   size 2
-  label font Fira : Time (us)
+  mhash 4
+  label fontsize 10 font Fira : Time (us)
 
 newstring hjc vjc x 6 y 32
     fontsize 12 font Fira : Time (us) vs. Length of X

@@ -8,19 +8,12 @@
 
 \usetikzlibrary{mindmap}
 
-\author{Austin Jones}
 \title{DigitStringDiv1 \-- SRM 741, D1, 250-Pointer}
-\date{\today}
+
+\author{Austin Jones}
 \institute{University of Tennessee \-- Knoxville}
 
-
-\newcommand{\fullwidthgraphic}[2] {
-   {
-   \usebackgroundtemplate{\includegraphics[height=\paperwidth]{#1}}
-   \begin{frame}{#2}
-   \end{frame}
-   }
-}
+\date{\today}
 
 \begin{document}
 
@@ -28,7 +21,7 @@
 
 \begin{frame}{Overview}
   \Large
-  \tableofcontents[hideallsubsections]
+  \tableofcontents
 \end{frame}
 
 \section{Problem Intro}
@@ -41,12 +34,12 @@
     };
   \end{minted}
   \begin{itemize}
+    \item \textbf{Count the number of substrings of S that are greater than X.}
     \item Given: S, string containing characters from '0' through '9' and is at most 47 characters in length.
     \item Given: X, integer between 0 and 777,444,111.
     \item A substring of S is a string that results when you erase some subset of indices of S.
     \item A substring of S does not start with '0'.
     \item e.g. S is ``12356'', ``13'' and ``256'' are substrings. ``61'' is not.
-    \item \textbf{Count the number of substrings of S that are greater than X.}
   \end{itemize}
 \end{frame}
 
@@ -79,11 +72,11 @@
   \Large
   \begin{itemize} % [<+->]
     \item Let i, j be a value 0-indexing into strings.
-    \item Let $X_{i}$ be the value of X at index i.
-    \item Let $S_{i}$ be the value of S at index i.
-    \item Let $X_{D}$ be the count of digits in X.
-    \item Let $S_{D}$ be the count of digits in S.
     \item Let $X_{S}$ be stringified X.
+    \item Let $X_{i}$ be the value of $X_{S}$  at index i.
+    \item Let $S_{i}$ be the value of S at index i.
+    \item Let $X_{D}$ be the count of digits in $X_{S}$.
+    \item Let $S_{D}$ be the count of digits in S.
   \end{itemize}
 \end{frame}
 
@@ -125,16 +118,16 @@
   \Large
   \begin{itemize} % [<+->]
     \item Let i, j be a value 0-indexing into strings.
-    \item Let $X_{i}$ be the value of X at index i.
-    \item Let $S_{i}$ be the value of S at index i.
-    \item Let $X_{D}$ be the count of digits in X.
-    \item Let $S_{D}$ be the count of digits in S.
     \item Let $X_{S}$ be stringified X.
+    \item Let $X_{i}$ be the value of $X_{S}$  at index i.
+    \item Let $S_{i}$ be the value of S at index i.
+    \item Let $X_{D}$ be the count of digits in $X_{S}$.
+    \item Let $S_{D}$ be the count of digits in S.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{The Algorithm}
-  \huge
+  \Large
   \begin{itemize} % [<+->]
     \item Count all substrings of S with more digits than X. \\
       % For each index in S, count all the substrings starting at that index with more digits than X.
@@ -145,13 +138,13 @@
 
 \begin{frame}{Digits Greater}
   \large
-  For each index in S s.t. $S_{i}$ is non-zero, count all the substrings starting at that index with more digits than X.
+  For each index in S s.t. $S_{i}$ is non-zero and $i > X_{D}$, count all the substrings starting at that index with more digits than X.
   \begin{itemize} % [<+->]
     \item At all indices greater than the number of digits in X perform:
       \begin{equation*}
         CountGreater(S_{i}) = \sum_{j = X_{D}}^{i} \binom{i}{j}
       \end{equation*}
-    \item The sum goes to $i$ as $S_{i}$ is fixed.
+    \item The sum goes to $i$ and not $i + 1$, as $S_{i}$ is fixed.
     \item Likewise, the sum starts at $X_{D}$ \-- one digit is already chosen.
   \end{itemize}
 \end{frame}
@@ -235,21 +228,21 @@
 \begin{frame}{Different Methods to the Problem}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=1.0\textwidth]{../figures/comparison.ps}
+    \includegraphics[width=0.9\textwidth]{../figures/comparison.ps}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Time vs S}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=1.0\textwidth]{../figures/vary_s.ps}
+    \includegraphics[width=0.9\textwidth]{../figures/vary_s.ps}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Time vs X}
   \begin{figure}[ht!]
     \centering
-    \includegraphics[width=1.0\textwidth]{../figures/vary_x.ps}
+    \includegraphics[width=0.9\textwidth]{../figures/vary_x.ps}
   \end{figure}
 \end{frame}
 

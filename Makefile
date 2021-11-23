@@ -21,7 +21,7 @@ $(FIGURES): $(FIGURES_src)
 	$(MAKE) -C ./figures/
 
 
-$(REPORT): $(FIGURES) report/prezzie.tex
+$(REPORT): $(FIGURES) $(FIGURES_src) report/prezzie.tex
 	$(MAKE) -C ./report/
 
 %.o: %.cpp
